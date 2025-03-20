@@ -1,5 +1,18 @@
 @extends('layouts.main')
 
+@section("tab-title", "Inicio")
+
+@section("title")
+Inicio
+@endsection
+
+
+@section("breadcrumb")
+<li class="breadcrumb-item active">Inicio</li>
+@endsection
+
+@section("content")
+
 <div class="row">
     <div class="col-xl-3 col-md-6">
         <div class="card bg-primary text-white mb-4">
@@ -546,3 +559,6 @@
         </table>
     </div>
 </div>
+
+@endsection
+

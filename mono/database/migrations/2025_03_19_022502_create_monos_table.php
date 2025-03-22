@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('color');
             $table->string('tamano');
             $table->integer('precio');
+            // $table->integer('ativo')->default(1);
             $table->timestamps();
         });
     }
@@ -29,3 +30,7 @@ return new class extends Migration
         Schema::dropIfExists('monos');
     }
 };
+
+
+
+

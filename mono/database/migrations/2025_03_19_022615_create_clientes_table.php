@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('domicio');
             $table->string('telefono');
+            // $table->integer('ativo')->default(1);
             $table->timestamps();
         });
     }

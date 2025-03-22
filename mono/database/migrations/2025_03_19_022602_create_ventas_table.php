@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('cliente_id');
             $table->integer('mono_id');
+            // $table->integer('ativo')->default(1);
             $table->timestamps();
         });
     }

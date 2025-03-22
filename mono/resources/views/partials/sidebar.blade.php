@@ -2,7 +2,7 @@
     <div class="sb-sidenav-menu">
         <div class="nav">
 
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('home') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-home-alt"></i></div>
                 Inicio
             </a>

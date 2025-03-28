@@ -1,18 +1,18 @@
 @extends('layouts.main')
 
 @section("tab-title")
-{{ $cliente->nombre }} - Clientes
+{{ $venta->id }} - ventas
 @endsection
 
 @section("title")
-<i class="fas fa-user me-2"></i>Cliente: {{ $cliente->nombre }}
+<i class="fas fa-dollar-sign me-2"></i>Venta: {{ $venta->cliente->nombre }}
 @endsection
 
 
 @section("breadcrumb")
 <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-<li class="breadcrumb-item"><a href="{{ route('clientes') }}">Clientes</a></li>
-<li class="breadcrumb-item active">Cliente</li>
+<li class="breadcrumb-item"><a href="{{ route('ventas') }}">Ventas</a></li>
+<li class="breadcrumb-item active">Venta</li>
 @endsection
 
 @section("content")
@@ -22,9 +22,10 @@
     <div class="col-6">
         <div class="card" >
             <div class="card-body">
-                <h5 class="card-title">{{$cliente->nombre}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{$cliente->telefono}}</h6>
-                <p class="card-text"><strong>Domicilio:</strong>{{$cliente->domicio}}</p>
+                <h5 class="card-title">{{$venta->cliente->nombre}}</h5>
+                <br>
+                <p class="card-text"><strong>Moño:</strong>{{$venta->mono->nombre}}</p>
+                <p class="card-text"><strong>Registrado:</strong>{{$venta->created_at}}</p>
                 <a href="#" class="card-link">Modificar</a>
                 <a href="#" class="card-link">Dar de baja</a>
             </div>

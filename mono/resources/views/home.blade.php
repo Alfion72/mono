@@ -3,7 +3,7 @@
 @section("tab-title", "Inicio")
 
 @section("title")
-Inicio
+<i class="fas fa-home me-2"></i>Inicio
 @endsection
 
 

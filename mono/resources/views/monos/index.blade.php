@@ -23,7 +23,7 @@ Moños
             <th>Tamaño</th>
             <th>Precio</th>
             <th>Registrado</th>
-            <th>| |</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +35,11 @@ Moños
                 <td>{{$mono->tamano}}</td>
                 <td>{{$mono->precio}}</td>
                 <td>{{$mono->created_at}}</td>
+                <td>
+                <a href=" {{ route('monos.item', $mono->id) }} " class="btn btn-sm btn-primary">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                </td>
             </tr>
         @endforeach
     </tbody>

@@ -20,4 +20,17 @@ class ClientesController extends Controller
         return view('clientes.item', compact('cliente'));
     }
 
+    public function agregar(){
+        return view('clientes.agregar');
+    }
+
+    public function delete(Request $request){
+        $data = $request->validate([
+            'cliente_id' => 'required|integer'],
+            [
+                'cliente_id.integrer' => 'favor de enviar el id unicamente'
+            ]);
+        $cliente = Cliente::where('id', '=', $data['cliente_id'])->where('activo', '=', 1)->first();
+    }
+
 }

@@ -21,7 +21,7 @@ Ventas
             <th>Cliente_id</th>
             <th>Mono_id</th>
             <th>Registrado</th>
-            <th>| |</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -30,7 +30,12 @@ Ventas
                 <td>{{$venta->id}}</td>
                 <td>{{$venta->cliente->nombre}}</td>
                 <td>{{$venta->mono->nombre}}</td>
-                <td>{{$venta->created_at}}</td></td>
+                <td>{{$venta->created_at}}</td>
+                <td>
+                <a href=" {{ route('ventas.item', $venta->id) }} " class="btn btn-sm btn-primary">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                </td>
             </tr>
         @endforeach
     </tbody>

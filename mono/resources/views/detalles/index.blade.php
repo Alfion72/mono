@@ -23,7 +23,7 @@ Detalles
             <th>Cantidad</th>
             <th>Total</th>
             <th>Registrado</th>
-            <th>| |</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -34,7 +34,12 @@ Detalles
                 <td>{{$detalle->mono->nombre}}</td>
                 <td>{{$detalle->cantidad}}</td>
                 <td>{{$detalle->total}}</td>
-                <td>{{$detalle->created_at}}</td></td>
+                <td>{{$detalle->created_at}}</td>
+                <td>
+                <a href=" {{ route('detalles.item', $detalle->id) }} " class="btn btn-sm btn-primary">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                </td>
             </tr>
         @endforeach
     </tbody>

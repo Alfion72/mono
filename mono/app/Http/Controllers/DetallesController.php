@@ -10,6 +10,12 @@ class DetallesController extends Controller
     public function index(){
         $detalles = Detalle:: all();
 
-        return view('detalles', compact('detalles'));
+        return view('detalles.index', compact('detalles'));
+    }
+
+    public function item($id){
+        $detalle = Detalle::findOrFail($id);
+        
+        return view('detalles.item', compact('detalle'));
     }
 }

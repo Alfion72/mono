@@ -10,6 +10,14 @@ class VentasController extends Controller
     public function index(){
         $ventas = Venta:: all();
 
-        return view('ventas', compact('ventas'));
+        return view('ventas.index', compact('ventas'));
     }
+
+    public function item($id){
+        $venta = Venta::where('id', '=', $id)->first();
+
+        return view('ventas.item', compact('venta'));
+    }
+
+
 }

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MonosController extends Controller
 {
     public function index(){
-        $monos = Mono:: all();
+        $monos = Mono:: where ('ativo', 1)->get();
         $list = [];
 
         foreach($monos as $mono){

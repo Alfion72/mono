@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class VentasController extends Controller
 {
     public function index(){
-        $ventas = Venta:: all();
+        $ventas = Venta:: where ('ativo', 1)->get();
         $list = [];
 
         foreach($ventas as $venta){

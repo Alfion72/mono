@@ -8,8 +8,8 @@ use App\Models\Cliente;
 class ClientesController extends Controller
 {
     public function index(){
-        $clientes = Cliente:: all();
-        // $clientes = Cliente:: where('activo', 1)->get();
+        
+        $clientes = Cliente:: where ('ativo', '=', 1)->get();
 
         return view('clientes.index', compact('clientes'));
     }
@@ -22,6 +22,26 @@ class ClientesController extends Controller
 
     public function agregar(){
         return view('clientes.agregar');
+    }
+
+    public function store( Request $request){
+        $data = $request->validate([
+            'nombre' => 'required',
+            'domicilio' => 'required',
+            'telefono' => 'required|integer'
+        ],[
+            'nombre.required' => 'favor de escribir el nombre',
+            'domicilio.required' => 'favor de escribir la direccion',
+            'telefono.integer' => 'favor de escribir el telefono con numeros'
+        ]);
+
+        Cliente::create([
+            'nombre' => $data['nombre'],
+            'domicilio' => $data['domicilio'],
+            'telefono' => $data['telefono']
+        ]);
+
+        return redirect()->route('clientes');
     }
 
     public function delete(Request $request){

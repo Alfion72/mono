@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class ClientesController extends Controller
 {
     public function index(){
-        $clientes = Cliente:: all();
-        // $clientes = Cliente:: where('activo', 1)->get();
+        $clientes = Cliente:: where('activo', 1)->get();
         $list = [];
 
         foreach($clientes as $cliente){
@@ -54,4 +53,36 @@ class ClientesController extends Controller
             return response()->json($objeto);
         }
     }
+
+
+    public function agregar(Request $request){
+        $data = $request->validate([
+            'nombre' => 'required|string',
+            'domicio' => 'required|string',
+            'telefono' => 'required|integer'
+        ]);
+
+        $cliente = Cliente::create([
+            'nombre' => $data['nombre'],
+            'domicio' => $data['domicio'],
+            'telefono' => $data['telefono']
+        ]);
+
+        if($cliente){
+            $objeto = [
+                'code' => "200",
+                'mensaje' => 'Cliente creado con exito',
+                'cliente' => $cliente
+            ];
+            return response()->json($objeto);
+        }
+        else{
+            $objeto = [
+                'code' => '500',
+                'mensaje' => 'Error al crear el cliente, favor de verificar los datos'
+            ];
+            return response()->json($objeto);
+        }
+    }
+
 }

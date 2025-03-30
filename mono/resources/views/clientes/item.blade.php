@@ -24,7 +24,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{$cliente->nombre}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$cliente->telefono}}</h6>
-                <p class="card-text"><strong>Domicilio:</strong>{{$cliente->domicio}}</p>
+                <p class="card-text"><strong>Domicilio:</strong>{{$cliente->domicilio}}</p>
                 <a href="#" class="card-link">Modificar</a>
                 <a href="#" class="card-link">Dar de baja</a>
             </div>

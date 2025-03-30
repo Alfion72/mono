@@ -38,7 +38,7 @@ Clientes
             <tr>
                 <td>{{$cliente->id}}</td>
                 <td>{{$cliente->nombre}}</td>
-                <td>{{$cliente->domicio}}</td>
+                <td>{{$cliente->domicilio}}</td>
                 <td>{{$cliente->telefono}}</td>
                 <td>{{$cliente->created_at}}</td>
                 <td>

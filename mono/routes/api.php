@@ -13,7 +13,11 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/clientes', [ClientesController::class, 'index']);
 
+Route::post('/clientes/agregar', [ClientesController::class, 'agregar']);
+
 Route::get('/clientes/{id}', [ClientesController::class, 'item']);
+
+
 
 Route::get('/monos', [MonosController::class, 'index']);
 

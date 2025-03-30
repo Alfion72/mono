@@ -10,6 +10,13 @@ Detalles
 @section("breadcrumb")
 <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
 <li class="breadcrumb-item active">Detalles</li>
+
+@endsection
+
+@section('action')
+    <a class="btn btn-success" href="{{ route('detalles.agregar') }}"> <i class="fa fa-plus"></i>
+        <i>Agregar</i>
+    </a>
 @endsection
 
 @section("content")

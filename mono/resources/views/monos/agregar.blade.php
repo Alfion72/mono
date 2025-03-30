@@ -1,15 +1,15 @@
 @extends('layouts.main')
 
-@section("tab-title", "Clientes - Agregar")
+@section("tab-title", "Moños - Agregar")
 
 @section("title")
-<i class="fa fa-user"></i>Clientes - Agregar
+<i class="fa fa-user"></i>Moños - Agregar
 @endsection
 
 
 @section("breadcrumb")
 <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-<li class="breadcrumb-item"><a href="{{ route('clientes') }}">Clientes</a></li>
+<li class="breadcrumb-item"><a href="{{ route('monos') }}">Moños</a></li>
 <li class="breadcrumb-item active">Agregar</li>
 @endsection
 
@@ -33,14 +33,16 @@
         <div class="card" >
 
             <div class="card-body">
-                <form action="{{ route('clientes.store') }}" method="POST">
+                <form action="{{ route('monos.store') }}" method="POST">
                     @csrf
                     <label>Nombre</label>
                     <input type="text" name="nombre" class="form-control my-2" required>
-                    <label>Domicilio</label>
-                    <input type="text" name="domicilio" class="form-control my-2" required>
-                    <label>Telefono</label>
-                    <input type="text" name="telefono" class="form-control my-2" required>
+                    <label>Color</label>
+                    <input type="text" name="color" class="form-control my-2" required>
+                    <label>Tamaño</label>
+                    <input type="text" name="tamano" class="form-control my-2" required>
+                    <label>Precio</label>
+                    <input type="text" name="precio" class="form-control my-2" required>
                     
                     <button class="btn btn-success mt-2">Guardar</button>
                 </form>

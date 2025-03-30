@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class DetallesController extends Controller
 {
     public function index(){
-        $detalles = Detalle:: all();
+        $detalles = Detalle:: where ('ativo', 1)->get();
         $list = [];
 
         foreach($detalles as $detalle){

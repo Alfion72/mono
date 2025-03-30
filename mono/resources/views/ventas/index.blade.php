@@ -12,6 +12,13 @@ Ventas
 <li class="breadcrumb-item active">Ventas</li>
 @endsection
 
+
+@section('action')
+    <a class="btn btn-success" href="{{ route('ventas.agregar') }}"> <i class="fa fa-plus"></i>
+        <i>Agregar</i>
+    </a>
+@endsection
+
 @section("content")
 
 <table class="table table-bordered table-hover">

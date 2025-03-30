@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('mono_id');
             $table->integer('cantidad');
             $table->integer('total');
-            // $table->integer('ativo')->default(1);
+            $table->integer('ativo')->default(1);
             $table->timestamps();
         });
     }

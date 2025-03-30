@@ -12,6 +12,13 @@ Moños
 <li class="breadcrumb-item active">Moños</li>
 @endsection
 
+
+@section('action')
+    <a class="btn btn-success" href="{{ route('monos.agregar') }}"> <i class="fa fa-plus"></i>
+        <i>Agregar</i>
+    </a>
+@endsection
+
 @section("content")
 
 <table class="table table-bordered table-hover">

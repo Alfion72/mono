@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ClientesController extends Controller
 {
     public function index(){
-        $clientes = Cliente:: where('activo', 1)->get();
+        $clientes = Cliente:: where('ativo', 1)->get();
         $list = [];
 
         foreach($clientes as $cliente){
@@ -17,7 +17,7 @@ class ClientesController extends Controller
             $objeto = [
                 'id' => $cliente->id,
                 'nombre' => $cliente->nombre,
-                'domicilio' => $cliente->domicio,
+                'domicilio' => $cliente->domicilio,
                 'telefono' => $cliente->telefono,
                 'registrado' => $cliente->created_at,
                 'saludo' => 'hola'
@@ -37,7 +37,7 @@ class ClientesController extends Controller
             $objeto = [
                 'id' => $cliente->id,
                 'nombre' => $cliente->nombre,
-                'domicilio' => $cliente->domicio,
+                'domicilio' => $cliente->domicilio,
                 'telefono' => $cliente->telefono,
                 'registrado' => $cliente->created_at->format('d-m-Y'),
                 'saludo' => 'hola'
@@ -55,16 +55,16 @@ class ClientesController extends Controller
     }
 
 
-    public function agregar(Request $request){
+    public function create(Request $request){
         $data = $request->validate([
             'nombre' => 'required|string',
-            'domicio' => 'required|string',
+            'domicilio' => 'required|string',
             'telefono' => 'required|integer'
         ]);
 
         $cliente = Cliente::create([
             'nombre' => $data['nombre'],
-            'domicio' => $data['domicio'],
+            'domicilio' => $data['domicilio'],
             'telefono' => $data['telefono']
         ]);
 
@@ -80,6 +80,59 @@ class ClientesController extends Controller
             $objeto = [
                 'code' => '500',
                 'mensaje' => 'Error al crear el cliente, favor de verificar los datos'
+            ];
+            return response()->json($objeto);
+        }
+    }
+
+    public function update(Request $request, $id){
+        $data = $request->validate([
+            'id' => 'required|integer',
+            'nombre' => 'required|string',
+            'domicilio' => 'required|string',
+            'telefono' => 'required|integer'
+        ]);
+
+        $cliente = Cliente::where('id', '=', $id)->first();
+
+        if($cliente){
+            $cliente->update([
+                'nombre' => $data['nombre'],
+                'domicilio' => $data['domicilio'],
+                'telefono' => $data['telefono']
+            ]);
+            $objeto = [
+                'code' => "200",
+                'mensaje' => 'Cliente actualizado con exito',
+                'cliente' => $cliente
+            ];
+            return response()->json($objeto);
+        }
+        else{
+            $objeto = [
+                'code' => '500',
+                'mensaje' => 'Error al actualizar el cliente, favor de verificar los datos'
+            ];
+            return response()->json($objeto);
+        }
+    }
+
+    public function delete($id){
+        $cliente = Cliente::where('id', '=', $id)->first();
+        if($cliente){
+            $cliente->ativo = 0;
+            $cliente->save();
+            $objeto = [
+                'code' => "200",
+                'mensaje' => 'Cliente eliminado con exito',
+                'cliente' => $cliente
+            ];
+            return response()->json($objeto);
+        }
+        else{
+            $objeto = [
+                'code' => '500',
+                'mensaje' => 'Error al eliminar el cliente, favor de verificar los datos'
             ];
             return response()->json($objeto);
         }

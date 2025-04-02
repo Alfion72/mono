@@ -45,6 +45,10 @@ Clientes
                     <a href=" {{ route('clientes.item', $cliente->id) }} " class="btn btn-sm btn-primary">
                         <i class="fa fa-eye"></i>
                     </a>
+
+                    <a href=" {{ route('clientes.editar', $cliente->id) }} " class="btn btn-sm btn-warning">
+                        <i class="fa fa-edit"></i>
+                    </a>
                     
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{$cliente->id}}">
@@ -59,29 +63,30 @@ Clientes
 @endsection
 
 
-@section("modales")
-<!-- Modal -->
-@foreach($clientes as $cliente)
-<div class="modal fade" id="exampleModal{{$cliente->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form method="POST" action="">
-                @csrf
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">¿Desea darle kranky?</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-            <div class="modal-body">
-                <h4>El cliente <strong>{{$cliente->nombre}}</strong> se dara de baja</h4>
-            </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar cambios</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-@endforeach
+@section('modales')
+	@foreach($clientes as $cliente)
+		<div class="modal fade" id="exampleModal{{ $cliente->id }}" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<form method="POST" action="{{ route('clientes.eliminar') }}">
+						@csrf
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel">¿Desea dar de baja el cliente?</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<h4>El cliente <strong>{{ $cliente->nombre }}</strong> con telefono <strong>{{ $cliente->telefono }}</strong> será dado de baja</h4>
 
+							<input type="hidden" name="cliente_id" value="{{ $cliente->id }}">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-success">Aceptar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	@endforeach
 @endsection
+

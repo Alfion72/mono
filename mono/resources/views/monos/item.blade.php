@@ -27,8 +27,8 @@
                 <p class="card-text"><strong>Color:</strong>{{$mono->color}}</p>
                 <p class="card-text"><strong>Tamaño:</strong>{{$mono->tamano}}</p>
                 <p class="card-text"><strong>Precio:</strong>{{$mono->precio}}</p>
-                <a href="#" class="card-link">Modificar</a>
-                <a href="#" class="card-link">Dar de baja</a>
+                <a href="{{ route('monos.editar', $mono->id) }}" class="card-link">Modificar</a>
+                <a href="{{ route('monos.eliminar', $mono->id) }}" class="card-link">Dar de baja</a>
             </div>
         </div>
     </div>

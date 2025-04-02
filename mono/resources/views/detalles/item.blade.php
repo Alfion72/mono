@@ -5,7 +5,7 @@
 @endsection
 
 @section("title")
-<i class="fas fa-star me-2"></i>Detalle {{ $detalle->id }}
+<i class="fas fa-tag me-2"></i>Detalle {{ $detalle->id }}
 @endsection
 
 
@@ -28,8 +28,8 @@
                 <p class="card-text"><strong>Moño:</strong> {{$detalle->mono->nombre}}</p>
                 <p class="card-text"><strong>cantidad:</strong> {{$detalle->cantidad}}</p>
                 <p class="card-text"><strong>Total:</strong> {{$detalle->total}}</p>
-                <a href="#" class="card-link">Modificar</a>
-                <a href="#" class="card-link">Dar de baja</a>
+                <a href="{{ route('detalles.editar', $detalle->id) }}" class="card-link">Modificar</a>
+                <a href="{{ route('detalles.eliminar', $detalle->id) }}" class="card-link">Dar de baja</a>
             </div>
         </div>
     </div>

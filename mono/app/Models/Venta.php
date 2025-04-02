@@ -8,7 +8,7 @@ use App\Models\Mono;
 
 class Venta extends Model
 {
-    protected $fillable = ['cliente_id', 'mono_id', 'activo'];
+    protected $fillable = ['cliente_id', 'mono_id', 'ativo'];
 
     public function cliente() {
         return $this->belongsTo(Cliente::class);

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mono extends Model
 {
-    protected $fillable = ['nombre', 'color', 'tamano', 'precio', 'activo'];
+    protected $fillable = ['nombre', 'color', 'tamano', 'precio', 'ativo'];
 }

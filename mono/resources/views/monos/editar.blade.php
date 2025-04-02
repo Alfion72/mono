@@ -1,16 +1,16 @@
 @extends('layouts.main')
 
-@section("tab-title", "Ventas - Agregar")
+@section("tab-title", "Moños - Editar")
 
 @section("title")
-<i class="fa fa-dollar"></i>Ventas - Agregar
+<i class="fa fa-star mr-2"></i>Moños - Editar
 @endsection
 
 
 @section("breadcrumb")
 <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-<li class="breadcrumb-item"><a href="{{ route('ventas') }}">Ventas</a></li>
-<li class="breadcrumb-item active">Agregar</li>
+<li class="breadcrumb-item"><a href="{{ route('monos') }}">Moños</a></li>
+<li class="breadcrumb-item active">Editar</li>
 @endsection
 
 @section('content')
@@ -33,12 +33,17 @@
         <div class="card" >
 
             <div class="card-body">
-                <form action="{{ route('ventas.store') }}" method="POST">
+                <form action="{{ route('monos.update', $mono-> id) }}" method="POST">
                     @csrf
-                    <label>Cliente_id</label>
-                    <input type="text" name="cliente_id" class="form-control my-2" required>
-                    <label>Moño_id</label>
-                    <input type="text" name="mono_id" class="form-control my-2" required>
+                    <input type="hidden" name="id" value="{{ $mono->id }}">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" class="form-control my-2" value="{{ $mono->nombre }}" required>
+                    <label>Color</label>
+                    <input type="text" name="color" class="form-control my-2" value="{{ $mono->color }}" required>
+                    <label>Tamaño</label>
+                    <input type="text" name="tamano" class="form-control my-2" value="{{ $mono->tamano }}" required>
+                    <label>Precio</label>
+                    <input type="number" name="precio" class="form-control my-2" value="{{ $mono->precio }}" required>
                     
                     <button class="btn btn-success mt-2">Guardar</button>
                 </form>

@@ -3,7 +3,7 @@
 @section("tab-title", "Moños - Agregar")
 
 @section("title")
-<i class="fa fa-user"></i>Moños - Agregar
+<i class="fa fa-star mr-2"></i>Moños - Agregar
 @endsection
 
 

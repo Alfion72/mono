@@ -26,8 +26,8 @@
                 <br>
                 <p class="card-text"><strong>Moño:</strong>{{$venta->mono->nombre}}</p>
                 <p class="card-text"><strong>Registrado:</strong>{{$venta->created_at}}</p>
-                <a href="#" class="card-link">Modificar</a>
-                <a href="#" class="card-link">Dar de baja</a>
+                <a href="{{ route('ventas.editar', $venta->id)}}" class="card-link">Modificar</a>
+                <a href="{{ route('ventas.eliminar', $venta->id) }}" class="card-link">Dar de baja</a>
             </div>
         </div>
     </div>

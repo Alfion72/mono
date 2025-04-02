@@ -1,16 +1,16 @@
 @extends('layouts.main')
 
-@section("tab-title", "Detalles - Agregar")
+@section("tab-title", "Ventas - Editar")
 
 @section("title")
-<i class="fa fa-tag me-2"></i>Detalles - Agregar
+<i class="fa fa-dollar"></i>Ventas - Editar
 @endsection
 
 
 @section("breadcrumb")
 <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-<li class="breadcrumb-item"><a href="{{ route('detalles') }}">Detalles</a></li>
-<li class="breadcrumb-item active">Agregar</li>
+<li class="breadcrumb-item"><a href="{{ route('ventas') }}">Ventas</a></li>
+<li class="breadcrumb-item active">Editar</li>
 @endsection
 
 @section('content')
@@ -33,16 +33,14 @@
         <div class="card" >
 
             <div class="card-body">
-                <form action="{{ route('detalles.store') }}" method="POST">
+                <form action="{{ route('ventas.update', $venta-> id) }}" method="POST">
                     @csrf
-                    <label>Venta_id</label>
-                    <input type="text" name="venta_id" class="form-control my-2" required>
-                    <label>Moño_id</label>
-                    <input type="text" name="mono_id" class="form-control my-2" required>
-                    <label>Cantidad</label>
-                    <input type="text" name="cantidad" class="form-control my-2" required>
-                    <label>Total</label>
-                    <input type="text" name="total" class="form-control my-2" required>                    
+                    <input type="hidden" name="id" value="{{ $venta->id }}">
+                    <label>Cliente_id</label>
+                    <input type="text" name="cliente_id" class="form-control my-2" value="{{ $venta->cliente_id }}" required>
+                    <label>Mono_id</label>
+                    <input type="text" name="mono_id" class="form-control my-2" value="{{ $venta->mono_id }}" required>
+                    
                     <button class="btn btn-success mt-2">Guardar</button>
                 </form>
             </div>

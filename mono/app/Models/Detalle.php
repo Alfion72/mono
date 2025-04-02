@@ -7,9 +7,13 @@ use App\Models\Mono;
 
 class Detalle extends Model {
 
-    protected $fillable = ['venta_id', 'mono_id', 'cantidad', 'precio','total', 'activo'];
+    protected $fillable = ['venta_id', 'mono_id', 'cantidad', 'precio','total', 'ativo'];
 
     public function mono() {
         return $this->belongsTo(Mono::class);
+    }
+
+    public function venta() {
+        return $this->belongsTo(Venta::class);
     }
 }

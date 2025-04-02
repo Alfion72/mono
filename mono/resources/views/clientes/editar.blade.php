@@ -1,16 +1,16 @@
 @extends('layouts.main')
 
-@section("tab-title", "Detalles - Agregar")
+@section("tab-title", "Clientes - Editar")
 
 @section("title")
-<i class="fa fa-tag me-2"></i>Detalles - Agregar
+<i class="fa fa-user"></i>Clientes - Editar
 @endsection
 
 
 @section("breadcrumb")
 <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
-<li class="breadcrumb-item"><a href="{{ route('detalles') }}">Detalles</a></li>
-<li class="breadcrumb-item active">Agregar</li>
+<li class="breadcrumb-item"><a href="{{ route('clientes') }}">Clientes</a></li>
+<li class="breadcrumb-item active">Editar</li>
 @endsection
 
 @section('content')
@@ -33,16 +33,16 @@
         <div class="card" >
 
             <div class="card-body">
-                <form action="{{ route('detalles.store') }}" method="POST">
+                <form action="{{ route('clientes.update', $cliente-> id) }}" method="POST">
                     @csrf
-                    <label>Venta_id</label>
-                    <input type="text" name="venta_id" class="form-control my-2" required>
-                    <label>Moño_id</label>
-                    <input type="text" name="mono_id" class="form-control my-2" required>
-                    <label>Cantidad</label>
-                    <input type="text" name="cantidad" class="form-control my-2" required>
-                    <label>Total</label>
-                    <input type="text" name="total" class="form-control my-2" required>                    
+                    <input type="hidden" name="id" value="{{ $cliente->id }}">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" class="form-control my-2" value="{{ $cliente->nombre }}" required>
+                    <label>Domicilio</label>
+                    <input type="text" name="domicilio" class="form-control my-2" value="{{ $cliente->domicilio }}" required>
+                    <label>Telefono</label>
+                    <input type="text" name="telefono" class="form-control my-2" value="{{ $cliente->telefono }}" required>
+                    
                     <button class="btn btn-success mt-2">Guardar</button>
                 </form>
             </div>
